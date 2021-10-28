@@ -10,7 +10,7 @@ run-db:
 	docker run -p 5432:5432 -e POSTGRES_DB=users_benchmark -e POSTGRES_PASSWORD=abc123 -d postgres
 
 run-web:
-	$(VENV)uvicorn main:app --reload
+	$(VENV)uvicorn main:app --workers 8
 
 clean:
 	rm -rf .venv;
