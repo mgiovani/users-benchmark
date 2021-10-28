@@ -4,7 +4,7 @@ install:
 	python3 -m venv .venv; \
 	source ./.venv/bin/activate; \
 	pip install --upgrade pip; \
-	pip install -r requirements/local.txt; \
+	pip install -r requirements.txt; \
 
 runserver:
 	$(VENV)python manage.py runserver
