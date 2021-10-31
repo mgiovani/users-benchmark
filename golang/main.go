@@ -18,7 +18,7 @@ type User struct {
 }
 
 const (
-	host     = "localhost"
+	host     = "172.17.0.1"
 	port     = 5432
 	user     = "postgres"
 	password = "abc123"
@@ -26,9 +26,8 @@ const (
 )
 
 func openDBConnection() *sql.DB {
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
+	psqlInfo := fmt.Sprintf("postgres://%v:%v@%v:%v/%v?sslmode=disable",
+		user, password, host, port, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
