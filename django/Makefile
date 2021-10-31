@@ -7,7 +7,7 @@ install:
 	pip install -r requirements.txt; \
 
 run-db:
-	docker run -p 5432:5432 -e POSTGRES_DB=users_benchmark -e POSTGRES_PASSWORD=abc123 -d postgres
+	docker run -p 5432:5432 -e POSTGRES_DB=users_benchmark -e POSTGRES_PASSWORD=abc123 -d postgres -N 1024
 
 migrate:
 	$(VENV)python manage.py migrate
